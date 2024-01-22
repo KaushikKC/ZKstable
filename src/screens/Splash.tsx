@@ -1,12 +1,23 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import React, {useEffect} from 'react';
+import {View, Image} from 'react-native';
+import type {PropsWithChildren} from 'react';
 
-const Splash = () => {
+type Props = PropsWithChildren<{
+  navigation: any;
+}>;
+function Splash({navigation}: Props) {
+  useEffect(() => {
+    setTimeout(() => {
+      navigation.navigate('MainNav');
+    }, 2000);
+  }, [navigation]);
   return (
-    <View>
-      <Text>Splash</Text>
+    <View style={{flex: 1}}>
+      <Image
+        source={require('../../images/Splash.jpg')}
+        style={{width: '100%', height: '100%'}}
+      />
     </View>
-  )
+  );
 }
-
-export default Splash
+export default Splash;
