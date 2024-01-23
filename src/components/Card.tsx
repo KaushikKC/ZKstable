@@ -23,6 +23,7 @@ type Props = PropsWithChildren<{
   chainImg?: ImageProps;
   chain?: string;
   walletBalance?: string;
+  dollarValue: string;
 }>;
 
 export function Card({
@@ -34,9 +35,108 @@ export function Card({
   chainImg,
   chain,
   walletBalance,
+  dollarValue
 }: Props): JSX.Element {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [amountValue, setAmountValue] = useState('');
+
+  // useEffect(() => {
+  //   const fetchValue = async () => {
+  //     if (client) {
+  //       //  const _client = new ethers.providers.Web3Provider(provider);
+  //       const signer = client?.getSigner();
+  //       let usd1;
+  //       const usdcContract = new ethers.Contract(
+  //         '0x84B325e04a106A8A4636914C22319b9daecF2892',
+  //         ERC20ABI,
+  //         signer,
+  //       );
+
+  //       usd1 = await usdcContract.balanceOf(
+  //         '0x84B325e04a106A8A4636914C22319b9daecF2892',
+  //       );
+  //       console.log(usd1);
+  //       usd1 = ethers.utils.formatUnits(usd1, 6);
+  //       setUsd(usd1);
+  //       console.log(usd);
+  //       let link;
+  //       const linkContract = new ethers.Contract(
+  //         '0x84B325e04a106A8A4636914C22319b9daecF2892',
+  //         ERC20ABI,
+  //         signer,
+  //       );
+
+  //       link = await linkContract.balanceOf(
+  //         '0x84B325e04a106A8A4636914C22319b9daecF2892',
+  //       );
+  //       console.log(link);
+  //       link = ethers.utils.formatUnits(link, 18);
+  //       setLink(link);
+  //       console.log(link);
+  //     }
+  //     let eth;
+  //     eth = await client?.getSigner().getBalance();
+  //     eth = ethers.utils.formatUnits(eth!, 18);
+  //     seteth(Number(eth).toFixed(4));
+  //     console.log('eth' + eth);
+  //   };
+  //   fetchValue();
+  // }, [client, sign]);
+  const handleModal = () => {
+    setIsModalVisible(true);
+  };
+
+  // const callAction = async (action: string) => {
+  //   if (client && sign) {
+  //     console.log('hello');
+  //     const signer = await client?.getSigner().getAddress();
+  //     console.log('ended');
+  //     console.log(signer);
+
+  //     if (action === 'Supply') {
+  //       await supply({
+  //         user: signer,
+  //         reserve: '0xf8Fb3713D459D7C1018BD0A49D19b4C44290EBE5',
+  //         amount: amountValue,
+  //         onBehalfOf: signer,
+  //         provider: client,
+  //         signer: client.getSigner(),
+  //       });
+  //     } else if (action === 'Borrow') {
+  //       await borrow({
+  //         user: signer,
+  //         reserve: '0xc4bF5CbDaBE595361438F8c6a187bDc330539c60',
+  //         amount: amountValue,
+  //         interestRateMode: InterestRate.Variable,
+  //         onBehalfOf: signer,
+  //         provider: client,
+  //         signer: client.getSigner(),
+  //       });
+  //     } else if (action === 'Withdraw') {
+  //       await Withdraw({
+  //         user: signer,
+  //         reserve: '0xf8Fb3713D459D7C1018BD0A49D19b4C44290EBE5',
+  //         amount: amountValue,
+  //         aTokenAddress: '0x3FfAf50D4F4E96eB78f2407c090b72e86eCaed24',
+  //         onBehalfOf: signer,
+  //         provider: client,
+  //         signer: client.getSigner(),
+  //       });
+  //     } else if (action === 'Repay') {
+  //       await Repay({
+  //         user: signer,
+  //         reserve: '0xc4bF5CbDaBE595361438F8c6a187bDc330539c60',
+  //         amount: amountValue,
+  //         interestRateMode: InterestRate.Variable,
+  //         onBehalfOf: signer,
+  //         provider: client,
+  //         signer: client.getSigner(),
+  //       });
+  //     }
+  //     setIsModalVisible(false);
+  //   }
+  // };
+
 
   return (
     <CardLayout style={styles.Card}>
@@ -75,7 +175,7 @@ export function Card({
             %
           </Text>
         </View>
-        <TouchableOpacity style={styles.actionBtn}>
+        <TouchableOpacity style={styles.actionBtn} onPress={handleModal}>
           <Text style={styles.actionText}>{action}</Text>
         </TouchableOpacity>
       </TouchableOpacity>
@@ -83,7 +183,7 @@ export function Card({
       <ModalLayout
         modalVisible={isModalVisible}
         setModalVisible={setIsModalVisible}
-        modalTitle="Supply DAI">
+        modalTitle={action + ' ' + chainName}>
         <Text style={styles.amount}>Amount</Text>
         <View style={styles.AmountContent}>
           <View>
@@ -95,7 +195,7 @@ export function Card({
               onChangeText={text => setAmountValue(text)}
             />
 
-            <Text style={styles.amountDollar}>$</Text>
+            <Text style={styles.amountDollar}>${Number(amountValue)*Number(dollarValue)}</Text>
           </View>
           <View style={styles.AmountContentRight}>
             <View>
@@ -103,7 +203,7 @@ export function Card({
               <Text>{chain}</Text>
             </View>
             <View>
-              <Text>Wallet balance {walletBalance}K</Text>
+              <Text>Wallet balance {walletBalance}</Text>
               <Text>MAX</Text>
             </View>
           </View>
@@ -130,6 +230,7 @@ const styles = StyleSheet.create({
     padding: 20,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
   },
   amountValue: {
     color: '#000',
@@ -206,5 +307,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Quicksand',
     fontWeight: '400',
     fontSize: 16,
+    marginVertical: 10, 
   },
 });

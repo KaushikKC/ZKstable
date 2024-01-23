@@ -18,6 +18,9 @@ import { Card } from '../components/Card';
 
 function Home() {
   const [activeTab, setActiveTab] = useState('Supplies');
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  
     useState<FormatUserSummaryResponse | null>(null);
   const renderCardItem = ({item}) => (
     <Card

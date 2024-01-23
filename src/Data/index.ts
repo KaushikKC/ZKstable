@@ -6,6 +6,7 @@ export const Data = [
       value: '1,001.00',
       percentage: '82.20',
       action: 'Withdraw',
+      Dollarvalue: '13.89',
     },
 
   ];
@@ -15,6 +16,7 @@ export const Data = [
       image: require('../images/img2.png'),
       title: 'sathishmsk.eth',
       value: '250.00 (~ $250.00)',
+
     },
     {
       id: '2',
@@ -57,6 +59,7 @@ export const Data = [
       value: '4,577.80',
       percentage: '0.59',
       action: 'Repay',
+      Dollarvalue: '0.98'
     },
    
   ];
@@ -69,6 +72,7 @@ export const Data = [
       value: '5,000.00',
       percentage: '0.59',
       action: 'Supply',
+      Dollarvalue: '1',
     },
     {
       id: '2',
@@ -77,6 +81,7 @@ export const Data = [
       value: '5,000.00',
       percentage: '0.20',
       action: 'Supply',
+      Dollarvalue: '1',
     },
     {
       id: '3',
@@ -85,6 +90,7 @@ export const Data = [
       value: '0.3505431',
       percentage: '0.00',
       action: 'Supply',
+      Dollarvalue: '2187.83'
     },
     {
       id: '4',
@@ -93,6 +99,7 @@ export const Data = [
       value: '1,001.00',
       percentage: '82.20',
       action: 'Supply',
+      Dollarvalue: '13.89',
     },
   ];
   
@@ -104,6 +111,7 @@ export const Data = [
       value: '1,003.00',
       percentage: '2.02',
       action: 'Borrow',
+      Dollarvalue: '0.98',
     },
     {
       id: '2',
@@ -112,6 +120,7 @@ export const Data = [
       value: '984',
       percentage: '3.86',
       action: 'Borrow',
+      Dollarvalue: '1.08',
     },
     {
       id: '3',
@@ -120,6 +129,7 @@ export const Data = [
       value: '1,001.00',
       percentage: '0.07',
       action: 'Borrow',
+      Dollarvalue: '1',
     },
     {
       id: '4',
@@ -128,6 +138,7 @@ export const Data = [
       value: '34.65',
       percentage: '193.58',
       action: 'Borrow',
+      Dollarvalue: '13.89'
     },
   ];
   

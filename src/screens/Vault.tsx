@@ -15,6 +15,9 @@ import { ProfitData } from '../Data';
 import { BtnLayout } from '../components/BtnLayout';
 import { ValutCard } from '../components/VaultCard';
 import { ProfileCard } from '../components/ProfileCard';
+import dayjs from 'dayjs';
+import { ethers } from 'ethers';
+import { ABI, CONTRACT_ADDRESS } from '../Data/ContractConfig';
 
 
 function Vault() {
@@ -26,6 +29,65 @@ function Vault() {
   const [milestone1, setmilestone1] = useState();
   const [milestone2, setmilestone2] = useState();
   const [milestone3, setmilestone3] = useState();
+  // const [client, setClient] = useState<Web3Provider>();
+  // const [sign, setSign] = useState<Signer>();
+  // const {provider} = useWalletConnectModal();
+
+  // useEffect(() => {
+  //   const setprovider = async () => {
+  //     if (provider) {
+  //       const _client = new ethers.providers.Web3Provider(provider);
+  //       _client.send('eth_requestAccounts', []).then(async () => {
+  //         console.log('Connected');
+  //       });
+  //       setClient(_client);
+  //       setSign(_client.getSigner());
+  //       const signer = await client?.getSigner().getChainId();
+  //       console.log('objec');
+  //       console.log(signer);
+  //     }
+  //   };
+  //   setprovider();
+  // }, [provider]);
+
+  // const FundInitiative = async () => {
+  //   if (!client || !sign) {
+  //     console.error('Web3Provider or Signer not available.');
+  //     return;
+  //   }
+  
+  //   const ghostContract = new ethers.Contract(CONTRACT_ADDRESS, ABI, sign);
+  
+  //   try {
+  //     // Convert milestone values to uint16
+  //     const milestone1Value = parseInt(milestone1, 10) || 0;
+  //     const milestone2Value = parseInt(milestone2, 10) || 0;
+  //     const milestone3Value = parseInt(milestone3, 10) || 0;
+  
+  //     // Convert start and end dates to timestamps
+  //     const timestampStart = dayjs(Start).unix();
+  //     const timestampEnd = dayjs(End).unix();
+  
+  //     // Call the contract function with the provided parameters
+  //     const transaction = await ghostContract.CreateInitiative(
+  //       goal,            // Assuming goal is already a number or BigInt
+  //       rate,            // Assuming rate is already a number or BigInt
+  //       timestampStart,  // Start timestamp
+  //       timestampEnd,    // End timestamp
+  //       [milestone1Value, milestone2Value, milestone3Value]  // Array of milestones
+  //     );
+  
+  //     // Wait for the transaction to be mined
+  //     const receipt = await transaction.wait();
+      
+  //     console.log('Transaction mined:', receipt);
+  
+  //     // Set the 'initiated' state to true after a successful transaction
+  //     setInitiated(true);
+  //   } catch (error) {
+  //     console.error('Error funding initiative:', error.message);
+  //   }
+  // };
   
   const renderCardItem = ({item}) => (
     <ProfileCard
