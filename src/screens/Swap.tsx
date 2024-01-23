@@ -29,7 +29,7 @@ function Swap() {
         </View>
         <Image
           style={styles.img}
-          source={require('../../images/downArrow.png')}
+          source={require('../images/downArrow.png')}
         />
         <View style={styles.dropDownContainer}>
           <DropDown />
@@ -40,7 +40,7 @@ function Swap() {
 
           <Image
             style={styles.img2}
-            source={require('../../images/downArrow.png')}
+            source={require('../images/downArrow.png')}
           />
         </View>
         <View style={styles.dropDownContainer}>
@@ -50,10 +50,10 @@ function Swap() {
         <View style={styles.textContent}>
           <Text style={styles.title}>
             Slippage Tolerance
-            <Image source={require('../../images/warning.png')} />
+            <Image source={require('../images/warning.png')} />
           </Text>
           <Text style={styles.text2}>
-            2.0 % <Image source={require('../../images/settings.png')} />
+            2.0 % <Image source={require('../images/settings.png')} />
           </Text>
         </View>
         <CardLayout style={styles.Card}>

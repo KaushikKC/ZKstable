@@ -14,7 +14,7 @@ function Splash({navigation}: Props) {
   return (
     <View style={{flex: 1}}>
       <Image
-        source={require('../../images/Splash.jpg')}
+        source={require('../images/Splash.jpg')}
         style={{width: '100%', height: '100%'}}
       />
     </View>

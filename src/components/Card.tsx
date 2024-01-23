@@ -75,7 +75,7 @@ export function Card({
             %
           </Text>
         </View>
-        <TouchableOpacity style={styles.actionBtn} onPress={handleModal}>
+        <TouchableOpacity style={styles.actionBtn}>
           <Text style={styles.actionText}>{action}</Text>
         </TouchableOpacity>
       </TouchableOpacity>
@@ -111,10 +111,6 @@ export function Card({
         <View>
           <Button
             title={`Approve ${chainName} to continue`}
-            onPress={() => {
-              console.log('hello');
-              supplyWithPermit();
-            }}
           />
           <Button
             onPress={() => callAction(action)}
