@@ -13,6 +13,7 @@ import { ProfileCard } from '../components/ProfileCard';
 import { TransData } from '../Data';
 import { Button } from '../components/Button';
 import { ProfileDetail } from '../components/ProfileDetails';
+import { BtnLayout } from '../components/BtnLayout';
 
 function Profile() {
   const renderCardItem = ({item}) => (
@@ -33,10 +34,10 @@ function Profile() {
           address="chaalpritam.lens"
           mail="chaalpritam@gmail.com"
         />
-        {/* <View style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
+        <View style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
           <BtnLayout title="Supply" />
           <BtnLayout title="Withdraw" />
-        </View> */}
+        </View>
         <View style={styles.textContent}>
           <Text style={styles.title}>Transactions</Text>
           <Text style={styles.subTitle}>Settings</Text>
