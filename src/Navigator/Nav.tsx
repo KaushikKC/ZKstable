@@ -3,10 +3,13 @@ import {createStackNavigator} from '@react-navigation/stack';
 import 'react-native-gesture-handler';
 import MainNav from './MainNav';
 import Splash from '../screens/Splash';
+import CreateWallet from '../screens/CreateWallet';
 
 export type StackNavigatorParamList = {
   Splash: undefined;
+  CreateWallet: undefined;
   MainNav: undefined;
+  
 };
 
 const Stack = createStackNavigator<StackNavigatorParamList>();
@@ -19,6 +22,11 @@ function Nav(): JSX.Element {
       <Stack.Screen
         name="Splash"
         component={Splash}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="CreateWallet"
+        component={CreateWallet}
         options={{headerShown: false}}
       />
       <Stack.Screen

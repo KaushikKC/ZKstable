@@ -8,15 +8,15 @@ type Props = PropsWithChildren<{
 function Splash({navigation}: Props) {
   useEffect(() => {
     setTimeout(() => {
-      navigation.navigate('MainNav');
+      navigation.navigate('CreateWallet');
     }, 2000);
   }, [navigation]);
   return (
     <View style={{flex: 1}}>
-      <Image
+      {/* <Image
         source={require('../images/Splash.jpg')}
         style={{width: '100%', height: '100%'}}
-      />
+      /> */}
     </View>
   );
 }

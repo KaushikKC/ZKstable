@@ -60,6 +60,8 @@ function Section({children, title}: SectionProps): React.JSX.Element {
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
+  const scheme = "web3authrnexample"; // Or your desired app redirection scheme
+  const resolvedRedirectUrl = `${scheme}://openlogin`;
 
   const MyTheme = {
     ...DefaultTheme,
